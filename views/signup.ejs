@@ -5,12 +5,28 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-    
+
+    <div class="d-flex flex-column align-items-center pt-4">
+        <h1>Create an account to get started</h1>
+    <form action="/signup" method="POST" class="w-25 ">
+        <div class="form-group my-2">
+            <label for="exampleInputEmail1">User name</label>
+            <input type="text" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
+          </div>
+        <div class="form-group my-2">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group my-2">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group my-2">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword1" placeholder="Confirm password">
+          </div>
+        <input type="submit" class="btn btn-primary my-2"></input>
+      </form>
+</div>
     <%- include('partials/footer') -%>
