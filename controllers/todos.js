@@ -9,7 +9,7 @@ module.exports = {
         completed: false,
       });
 
-      const projects = [...new Set(todoItems.map((e) => e.project))];
+      const projects = [...new Set(todoItems.map((e) => e.project).sort())];
       console.log(projects);
       // Extracts the date from the Todos array of objects, changes the format and removes duplicates.
       const dates = [
