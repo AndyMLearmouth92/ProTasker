@@ -8,20 +8,17 @@ module.exports = {
         userId: req.user.id,
         completed: false,
       });
-      let dateArr = await Todo.find({ dateArr: req.body.deadline });
-      const dateArr2 = dateArr.map(
-        (e) =>
-          `${e.date.getDate()}/${e.date.getMonth() + 1}/${e.date.getFullYear()}`
-      );
-      //   console.log(
-      //     dateArr2[0].getDate() +
-      //       "/" +
-      //       (dateArr2[0].getMonth() + 1) +
-      //       "/" +
-      //       dateArr2[0].getFullYear()
-      //   );
-      //   console.log(date1);
-      const dates = [...new Set(dateArr2)];
+      // Extracts the date from the Todos array of objects, changes the format and removes duplicates.
+      const dates = [
+        ...new Set(
+          todoItems.map(
+            (e) =>
+              `${e.date.getDate()}/${
+                e.date.getMonth() + 1
+              }/${e.date.getFullYear()}`
+          )
+        ),
+      ];
       res.render("todos.ejs", {
         todos: todoItems,
         left: itemsLeft,
