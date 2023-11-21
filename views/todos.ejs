@@ -32,10 +32,10 @@
 
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start border-dark border-bottom" id="projects">
                         <h6 class='text-secondary mt-3'>Projects:</h6>
-                        <% todos.forEach( el => { %>
+                        <% project.forEach( el => { %>
                                 <li class='nav-item' data-id='<%=el._id%>'>
                                     <a href="#" class="nav-link align-middle px-0">
-                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"><%= el.project %></span>
+                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"><%= el %></span>
                                 </a>
                                 </li>
                         <% }) %>    

@@ -8,6 +8,9 @@ module.exports = {
         userId: req.user.id,
         completed: false,
       });
+
+      const projects = [...new Set(todoItems.map((e) => e.project))];
+      console.log(projects);
       // Extracts the date from the Todos array of objects, changes the format and removes duplicates.
       const dates = [
         ...new Set(
@@ -24,6 +27,7 @@ module.exports = {
         left: itemsLeft,
         user: req.user,
         date: dates,
+        project: projects,
       });
     } catch (err) {
       console.log(err);
