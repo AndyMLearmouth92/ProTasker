@@ -2,22 +2,37 @@ const Todo = require("../models/Todo");
 
 module.exports = {
   getTodos: async (req, res) => {
-    console.log(req.user);
     try {
       const todoItems = await Todo.find({ userId: req.user.id });
       const itemsLeft = await Todo.countDocuments({
         userId: req.user.id,
         completed: false,
       });
+      let dateArr = await Todo.find({ dateArr: req.body.deadline });
+      const dateArr2 = dateArr.map(
+        (e) =>
+          `${e.date.getDate()}/${e.date.getMonth() + 1}/${e.date.getFullYear()}`
+      );
+      //   console.log(
+      //     dateArr2[0].getDate() +
+      //       "/" +
+      //       (dateArr2[0].getMonth() + 1) +
+      //       "/" +
+      //       dateArr2[0].getFullYear()
+      //   );
+      //   console.log(date1);
+      const dates = [...new Set(dateArr2)];
       res.render("todos.ejs", {
         todos: todoItems,
         left: itemsLeft,
         user: req.user,
+        date: dates,
       });
     } catch (err) {
       console.log(err);
     }
   },
+
   createTodo: async (req, res) => {
     try {
       await Todo.create({
