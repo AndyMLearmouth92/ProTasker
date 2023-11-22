@@ -8,7 +8,7 @@ module.exports = {
         userId: req.user.id,
         completed: false,
       });
-
+      //Removes duplicates from the projects list and sorts them in alphabetical order.
       const projects = [...new Set(todoItems.map((e) => e.project).sort())];
       console.log(projects);
       // Extracts the date from the Todos array of objects, changes the format and removes duplicates.
@@ -40,7 +40,9 @@ module.exports = {
         todo: req.body.todoItem,
         completed: false,
         userId: req.user.id,
-        project: req.body.projectItem,
+        project:
+          req.body.projectItem[0].toUpperCase() +
+          req.body.projectItem.slice(1).toLowerCase(),
         date: req.body.deadline,
       });
       console.log("Todo has been added!");
