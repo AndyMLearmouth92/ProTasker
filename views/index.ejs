@@ -1,7 +1,37 @@
 <%- include('partials/header') -%>
+<div class="bg-img bg-cover vh-100" style="background-image: url('/imgs/blackboard.jpeg'); height:100%; width:100%;">
+<div class="d-flex flex-column justify-content-center align-items-center gap-4 py-4">
+    <div class="w-30 text-white">
+        <h1>Pro Tasker</h1>
+    </div>    
 
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+    <div>
+        <h3 class="w-30 text-white">Become your most organised self:</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Start each day feeling calm and in control</li>
+            <li class="list-group-item">Focus your energy on the right things</li>
+            <li class="list-group-item">Share the workload</li>
+            <li class="list-group-item">Centralise your tasks in one place</li>
+        </ul>
+    </div>
 
+    <div class="d-flex flex-column align-items-center">
+        <h3 class="w-30 text-white">ProTasker can help you:</h3>
+    <ul class="list-group">
+        <li class="list-group-item">Keep track of your daily and weekly tasks ✅</li>
+        <li class="list-group-item">View tasks by project or topic ✅</li>
+        <li class="list-group-item">Share tasks with others ✅</li>
+        <li class="list-group-item">Great for professional or personal use ✅</li>
+    </ul>
+    </div>
+</div>
+
+<div class="d-flex flex-column align-items-center py-4 text-white">
+    <h3>Create a to do list with Pro Tasker</h3>
+    <div class="p-2">
+        <a class="btn btn-outline-light mx-2" href="/login" role="button">Login</a>
+        <a class="btn btn-outline-light mx-2" href="/signup" role="button">Sign up</a>
+    </div>
+</div>
+</div>
 <%- include('partials/footer') -%>

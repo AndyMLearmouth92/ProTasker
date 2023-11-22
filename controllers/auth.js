@@ -6,9 +6,7 @@ const User = require('../models/User')
     if (req.user) {
       return res.redirect('/todos')
     }
-    res.render('login', {
-      title: 'Login'
-    })
+    res.render('login', { user: req.user})
   }
   
   exports.postLogin = (req, res, next) => {
@@ -51,9 +49,7 @@ const User = require('../models/User')
     if (req.user) {
       return res.redirect('/todos')
     }
-    res.render('signup', {
-      title: 'Create Account'
-    })
+    res.render('signup', { user: req.user})
   }
   
   exports.postSignup = (req, res, next) => {
